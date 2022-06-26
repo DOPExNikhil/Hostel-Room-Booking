@@ -1,0 +1,81 @@
+#include <stdio.h>
+#include <string.h>
+#include<stdlib.h>
+int main()
+{
+    int room[20]={0};
+    int n,rn,i;
+    while(1)
+    {   
+        printf("\n\n  _________________________"); //welcome note..
+        printf("\n |   Hostel Room Booking   |");
+        printf("\n |_________________________|");
+        printf("\n\n1. Booking");
+        printf("\n2. Availability");
+        printf("\n3. Exit");
+        printf("\n\nEnter Choice: ");
+        scanf("%d",&n); 
+        
+    
+    switch(n) //using switch case for basic selection between main menu
+        {
+        case 1:
+            printf("\nEnter Room No:");
+            scanf("%d",&rn);
+            if(room[rn-1]==0)  //checking on the array's index for room avalibity
+            {
+                printf("\n\n||Room is Available||");
+                printf("\n\n||Confirm Booking?||\n||1.YES           ||\n||2.NO            ||\n");
+                int m;
+                scanf("%d",&m);
+                switch(m)
+                {
+                    case 1:
+                    room[rn-1]=1;
+                    printf("\n\n*-*-*-*-*-*-*-*-*-*-*");
+                    printf("\n\n| Booking Confirmed |");
+                    printf("\n\n*-*-*-*-*-*-*-*-*-*-*");
+                    printf("\nDo you want to continue:\n1. YES\n2. NO \n");
+                    int c;
+                    scanf("%d",&c);
+                    if(c==2){
+                       printf("||THANK YOU FOR USING OUR SERVICES||");
+                    return 0;}
+                    break;
+                    case 2:
+                    printf("\n\n**Thank You For Your Time**");
+                    break;
+                }
+            }
+            else{
+            printf("\n\n|------------------|");
+            printf("\n\n|Room Not Available|");
+            printf("\n\n| **TRY ANOTHER**  |");
+            printf("\n\n|------------------|");}
+            break;
+
+        case 2:
+            printf("Available Room No:\n");
+            rn=1;
+            for(i=0;i<20;i++)
+            {
+                
+                if(room[rn-1]==0)
+                printf("ROOM:%d\n",rn);
+                rn=rn+1;
+            }
+            break;
+        case 3:
+            printf("||THANK YOU FOR USING OUR SERVICES||");
+            exit(0);
+        default:
+            printf("||ERROR-PLEASE TRY AGAIN||");  
+        
+
+
+        }
+     
+    }
+    
+    return 0;    
+}
