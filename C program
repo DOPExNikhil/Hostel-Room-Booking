@@ -7,32 +7,32 @@ int main()
     int n,rn,i;
     while(1)
     {   
-        printf("\n\n  _________________________"); //welcome note..
+        printf("\n\n  _________________________");    //WELCOME NOTE
         printf("\n |   Hostel Room Booking   |");
         printf("\n |_________________________|");
         printf("\n\n1. Booking");
         printf("\n2. Availability");
         printf("\n3. Exit");
-        printf("\n\nEnter Choice: ");
+        printf("\n\nEnter Choice: ");    //ENTERING NO. FROM 1 TO 3 TO CALL THEIR RESPECTIVE TASK
         scanf("%d",&n); 
         
     
-    switch(n) //using switch case for basic selection between main menu
+    switch(n)     //USING SWITCH CASE FOR BASIC SELECTION BETWEEN MAIN MENU
         {
         case 1:
             printf("\nEnter Room No:");
-            scanf("%d",&rn);
-            if(room[rn-1]==0)  //checking on the array's index for room avalibity
+            scanf("%d",&rn);     //ENTERING ROOM NO.(ACTUALLY IT IS THE INDEX FOR ARRAY)
+            if(room[rn-1]==0)    //CHECKING ON THE ARRAYS INDEX FOR ROOM AVAILABILITY
             {
                 printf("\n\n||Room is Available||");
                 printf("\n\n||Confirm Booking?||\n||1.YES           ||\n||2.NO            ||\n");
                 int m;
                 scanf("%d",&m);
-                switch(m)
+                switch(m)    //SWITCH TO ENTER 1 OR 2 FOR YES OR NO
                 {
                     case 1:
-                    room[rn-1]=1;
-                    printf("\n\n*-*-*-*-*-*-*-*-*-*-*");
+                    room[rn-1]=1;                          //ARRAYY VALUE FOR THAT INDEX BECOMES 1(THAT ROOM CANNOT BE TAKEN AGAIN)
+                    printf("\n\n*-*-*-*-*-*-*-*-*-*-*");   //BOOKING CONFIRMED
                     printf("\n\n| Booking Confirmed |");
                     printf("\n\n*-*-*-*-*-*-*-*-*-*-*");
                     printf("\nDo you want to continue:\n1. YES\n2. NO \n");
@@ -45,10 +45,12 @@ int main()
                     case 2:
                     printf("\n\n**Thank You For Your Time**");
                     break;
+                    default:
+                    printf("||INVALID INPUT...PLEASE TRY AGAIN||");
                 }
             }
             else{
-            printf("\n\n|------------------|");
+            printf("\n\n|------------------|");  //IF ARRAY VALUE =1,THEN ROOM FOR THAT INDEX IS NOT AVAILABLE
             printf("\n\n|Room Not Available|");
             printf("\n\n| **TRY ANOTHER**  |");
             printf("\n\n|------------------|");}
@@ -56,20 +58,20 @@ int main()
 
         case 2:
             printf("Available Room No:\n");
-            rn=1;
-            for(i=0;i<20;i++)
+            rn=1;                   //INITIALISING RN FROM 1
+            for(i=0;i<20;i++)       //LOOPING TO CHECK AVAILABILITY OF ROOMS
             {
                 
-                if(room[rn-1]==0)
-                printf("ROOM:%d\n",rn);
-                rn=rn+1;
+                if(room[rn-1]==0)         //ARRAY VALUE ==0?,THEN ROOM IS AVAILABLE
+                printf("ROOM:%d\n",rn);   //PRINT THAT INDEX
+                rn=rn+1;                  //CHECK NEXT
             }
             break;
         case 3:
-            printf("||THANK YOU FOR USING OUR SERVICES||");
-            exit(0);
+            printf("||THANK YOU FOR USING OUR SERVICES||");   
+            exit(0);      //EXITING FROM COMPILER
         default:
-            printf("||ERROR-PLEASE TRY AGAIN||");  
+            printf("||ERROR-PLEASE TRY AGAIN||"); //IF YOU PUT OTHER INPUT RATHER THAN 1,2,3 
         
 
 
